@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>MY FIRST PAGE</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
+<style>
+body {
+  font-family: "Trirong", serif;
+}
+
+</style>
+</head>
+<body>
+<table border="1" align="center" style="height:100px ;width:100%;background-color:Green;color:white" >
+<tr style="height:50%">
+    <td align="center" >
+        <div style="font-size:20px"><h1>O P C</h1></div>
+        <div><h2>Out Patient Care</h2></div>
+    </td>
+</tr>
+<tr>
+    <td></td>
+</tr>
+
+</table>
+<table >
+
+    <tr><td align="center" style="width: 800px;"><img  src="opc.jpg" style="height: 600px;
+  width: 600px"></td>
+        <td>
+            <div>
+                <h3>We provide health care service at your home</h3>
+            </div>
+            <br>
+            <br>
+            <br>
+            <div align="center" style="font-size:30px;color:Blue;width:200px">Login </div>
+            <div></div>
+            <div></div>
+<table align="center"  style="font-weight:bold">
+
+    <tbody>
+    <tr>
+        <td style="width:100px">Profile</td>
+        <td><select id="profile">
+            <option value="0"> Select Profile</option>
+
+        </select></td>
+    </tr>
+    <tr>
+        <td >User Name</td>
+        <td><input type="text" id="uname" value="" placeholder="Enter your User Name"/></td>
+    </tr>
+    <tr>
+        <td> Password</td>
+        <td><input type="password" id="psd"  value="" placeholder="Enter your password"/></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td align="center"><button id="myButton" style="width:150px;height:20px;background-color:MediumSeaGreen">
+            Sign in</button></td>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+    </tr>
+</table>
+</body>
+<script>
+const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+const profiles=new Array('Nurse','Patient');
+var profile= document.getElementById("profile");
+for(let i=0;i<profiles.length;i++){
+    let option1 = document.createElement('option');
+    option1.value = i+1;
+    option1.text = profiles[i];
+    profile.appendChild(option1);
+    }
+    function myFunction() {
+  var profile=document.getElementById("profile").value;
+  var uname=document.getElementById("uname").value;
+  var psd=document.getElementById("psd").value;
+  var isValidEmail = emailRegex.test(uname);
+  if(!isValidEmail){
+  alert("Invalid Email");
+  }
+  else if(uname==="John.Cruise@gmail.com" && psd==="John123")
+  {
+  location.replace("nurse.html");
+  }
+  else if(uname==="Ben.mark@gmail.com" && psd==="Ben123")
+  {
+  location.replace("patient.html");
+  }else
+  alert("Please check your user name and password");
+}
+document.getElementById("myButton").addEventListener("click", myFunction);
+</script>
+</html>
